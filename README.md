@@ -68,3 +68,39 @@ GitHub utilise Git, un logiciel de contrôle de version, pour gérer le suivi de
 
 GitHub offre également de nombreuses autres fonctionnalités, telles que la gestion des tâches, la documentation du projet, et l'intégration avec d'autres services populaires. C'est devenu une plateforme de développement de logiciel incontournable pour de nombreuses équipes à travers le monde.
 
+## Configuration des outils
+
+- `git config` : Cette commande permet de configurer les paramètres de Git à différents niveaux (système, utilisateur ou local au niveau d'un dépôt). Elle peut être utilisée pour définir votre nom d'utilisateur et votre adresse électronique, qui seront utilisés pour les opérations de commit. Par exemple : git config --global user.name "Mon Nom"
+
+- `git init` : Cette commande permet de créer un nouveau dépôt Git local. Elle doit être utilisée dans le répertoire qui doit être suivi par Git.
+
+- `git clone` : Cette commande permet de créer une copie locale d'un dépôt Git existant. Elle est souvent utilisée pour travailler sur un projet en collaboration avec d'autres personnes, car elle permet de télécharger tout le contenu du dépôt ainsi que l'historique complet des commits. Par exemple : `git clone https://github.com/user/repo.git`
+
+- `git remote` : Cette commande permet de gérer les connexions à d'autres dépôts distants. Elle peut être utilisée pour ajouter un dépôt distant à votre dépôt local en utilisant la sous-commande add, comme dans l'exemple suivant : `:wq
+git remote add origin https://github.com/user/repo.git`
+
+## Qu'est-ce qu'un commit ?
+
+Un commit Git (ou simplement commit) est une sauvegarde de l'état actuel du dépôt dans l'historique. En d'autres termes, un commit permet de conserver une version de tous les fichiers du dépôt à un moment donné. Lorsque vous effectuez un commit, vous spécifiez un message de commit qui décrit les modifications apportées au dépôt depuis le dernier commit. Cela peut être utile pour comprendre les changements apportés au dépôt au fil du temps et pour revenir à une version précédente du dépôt si nécessaire.
+
+Les commits forment une chaîne dans l'historique du dépôt, chaque commit faisant référence au commit précédent. Cela permet de suivre l'évolution du dépôt au fil du temps et de naviguer dans l'historique des commits.
+
+En utilisant des commits de manière régulière, vous pouvez maintenir un historique clair et organisé de votre travail et faciliter la collaboration avec d'autres personnes sur un projet.
+
+## Consulter les modifications et effectuer des commits
+
+- `git status` : Cette commande permet de voir les fichiers modifiés et ceux qui sont en attente de commit. Elle est souvent utilisée pour savoir où en est l'état du dépôt local par rapport au dernier commit.
+
+- `git diff` : Cette commande permet de voir les différences entre les fichiers modifiés et ceux du dernier commit. Elle est souvent utilisée pour voir les détails des modifications apportées aux fichiers.
+
+- `git add` : Cette commande permet de mettre des fichiers en attente de commit. Elle est souvent utilisée pour ajouter des fichiers modifiés ou nouvellement créés au prochain commit. Par exemple : `git add path/to/file.txt`
+
+- `git commi`t : Cette commande permet de créer un commit, c'est-à-dire de sauvegarder l'état actuel du dépôt dans l'historique. Elle doit être utilisée avec un message de commit qui décrit les modifications apportées. Par exemple : `git commit -m "Ajout d'une nouvelle fonctionnalité"`
+
+> Voici un exemple de workflow courant avec ces commandes :
+> 
+> 1. Modifiez un ou plusieurs fichiers dans votre dépôt local.
+> 2. Utilisez git status pour voir quels fichiers ont été modifiés.
+> 3. Utilisez git diff pour voir les détails des modifications apportées aux fichiers.
+> 4. Utilisez git add pour mettre en attente les fichiers modifiés que vous souhaitez inclure dans le prochain commit.
+> 6. Utilisez git commit avec un message de commit pour enregistrer les modifications dans l'historique du dépôt.
