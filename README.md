@@ -104,3 +104,46 @@ En utilisant des commits de manière régulière, vous pouvez maintenir un histo
 > 3. Utilisez git diff pour voir les détails des modifications apportées aux fichiers.
 > 4. Utilisez git add pour mettre en attente les fichiers modifiés que vous souhaitez inclure dans le prochain commit.
 > 6. Utilisez git commit avec un message de commit pour enregistrer les modifications dans l'historique du dépôt.
+## Nommer une série de commits et les combiner entre eux
+
+- `git tag` : Cette commande permet de créer, lister et supprimer des tags dans Git. Un tag est un nom qui peut être associé à un commit spécifique dans l'historique du dépôt. Les tags sont souvent utilisés pour marquer des versions stables ou importantes du dépôt, par exemple une version de production ou une version de développement en cours. Par exemple, pour créer un nouveau tag nommé v1.0 qui pointe sur le dernier commit, vous pouvez utiliser la commande suivante : `git tag v1.0`
+
+- `git branch` : Cette commande permet de gérer les branches dans Git. Une branche est une série de commits qui évolue indépendamment des autres branches. Les branches sont souvent utilisées pour développer de nouvelles fonctionnalités ou corriger des bogues, tout en maintenant une version stable du dépôt sur la branche principale (appelée "master"). Par exemple, pour créer une nouvelle branche nommée new-feature, vous pouvez utiliser la commande suivante : `git branch new-feature`
+
+- `git merge` : Cette commande permet de combiner les commits d'une branche dans une autre. Elle est souvent utilisée pour fusionner les modifications apportées sur une branche de développement dans la branche principale une fois que le travail est terminé. Par exemple, pour fusionner les commits de la branche new-feature dans la branche master, vous pouvez utiliser la commande suivante : `git merge new-feature`
+
+- `git cherry-pick` : Cette commande permet de sélectionner un commit spécifique et de l'appliquer à la branche courante. Elle est souvent utilisée pour sélectionner individuellement des commits d'une branche et les appliquer à une autre, au lieu de fusionner tous les commits d'une branche avec git merge. Par exemple, pour appliquer le commit avec l'ID abcdefg à la branche courante, vous pouvez utiliser la commande suivante : `git cherry-pick abcdefg`
+
+## Exclure des modifications et des fichiers du dépôt
+
+Un fichier .gitignore est un fichier de configuration qui permet de définir une liste de fichiers et de dossiers à ignorer par Git. Lorsque vous ajoutez un fichier ou un dossier à ce fichier, Git ne suivra pas les modifications apportées à ces éléments et ne les inclura pas dans les commits.
+
+Voici comment utiliser un fichier .gitignore pour exclure des fichiers et des chemins temporaires :
+
+1. Créez un fichier .gitignore dans le répertoire racine de votre dépôt Git.
+2. Ajoutez la liste des fichiers et dossiers à ignorer, un par ligne. Vous pouvez utiliser des caractères génériques comme * et ? pour ignorer plusieurs fichiers similaires. Par exemple, pour ignorer tous les fichiers terminant par .tmp, vous pouvez ajouter la ligne suivante au fichier .gitignore : *.tmp
+3. Enregistrez le fichier .gitignore. Git commencera à ignorer les fichiers et dossiers spécifiés dans ce fichier lors de l'exécution de la commande git add.
+
+> Notez que si vous avez déjà ajouté des fichiers ou dossiers à Git avant de les ajouter au fichier .gitignore, ils resteront suivis par Git et inclu dans les commits futurs. Vous pouvez utiliser la commande git rm --cached pour arrêter de suivre ces fichiers et les exclure des commits futurs.
+
+## Mettre en suspens des modifications non finies pour y revenir plus tard
+
+- `git stash` : Cette commande permet de mettre en attente les modifications en cours et de les cacher temporairement. Elle est souvent utilisée lorsque vous souhaitez changer de branche ou effectuer une autre action qui nécessite de nettoyer votre dépôt local, tout en conservant les modifications en cours pour y revenir plus tard. Par exemple, pour mettre en attente les modifications en cours et nettoyer votre dépôt, vous pouvez utiliser la commande suivante : `git stash`
+
+- `git stash list` : Cette commande permet de voir la liste des modifications mises en attente avec git stash. Elle peut être utile pour savoir combien de modifications sont en attente et leur contenu.
+
+- `git stash apply` : Cette commande permet de réappliquer les modifications mises en attente avec git stash. Elle peut être utilisée pour continuer le travail sur les modifications mises en attente à un moment donné. Par exemple, pour réappliquer les dernières modifications mises en attente, vous pouvez utiliser la commande suivante : `git stash apply`
+
+- `git stash pop` : Cette commande fait la même chose que git stash apply, mais en plus elle supprime la modification mise en attente de la liste des modifications mises en attente. Cela peut être utile lorsque vous avez terminé de travailler sur les modifications mises en attente et que vous souhaitez nettoyer votre liste de modifications mises en attente. Par exemple, pour réappliquer et supprimer les dernières modifications mises en attente, vous pouvez utiliser la commande suivante : `git stash pop`
+
+- `git stash drop` : Cette commande permet de supprimer une modification mise en attente de la liste des modifications mises en attente. Elle peut être utilisée pour supprimer une modification mise en attente dont vous n'avez plus besoin. Par exemple, pour supprimer la dernière modification mise en attente, vous pouvez utiliser la commande suivante : `git stash drop`
+
+## Référencer un dépôt distant et synchroniser l'historique de versions
+
+- `git remote` : Cette commande permet de gérer les connexions à d'autres dépôts distants. Elle peut être utilisée pour ajouter un dépôt distant à votre dépôt local en utilisant la sous-commande add, comme dans l'exemple suivant : `git remote add origin https://github.com/user/repo.git`
+
+`git fetch` : Cette commande permet de télécharger les commits et les objets associés à partir d'un dépôt distant, sans les fusionner dans votre branche courante. Elle est souvent utilisée pour récupérer les modifications apportées par d'autres personnes au dépôt distant et les préparer pour une fusion ultérieure avec git merge. Par exemple, pour télécharger les commits du dépôt distant nommé origin, vous pouvez utiliser la commande suivante : `git fetch origin`
+
+`git pull` : Cette commande permet de récupérer et de fusionner les commits d'un dépôt distant dans votre branche courante. Elle est souvent utilisée pour synchroniser votre dépôt local avec le dépôt distant et intégrer les modifications apportées par d'autres personnes. Par exemple, pour récupérer et fusionner les commits du dépôt distant nommé origin dans votre branche courante, vous pouvez utiliser la commande suivante : `git pull origin`
+
+`git push` : Cette commande permet de publier les commits de votre dépôt local sur un dépôt distant.
