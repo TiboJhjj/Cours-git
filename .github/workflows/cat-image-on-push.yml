@@ -16,3 +16,10 @@ jobs:
               run: pip install requests
 
             - run: python -u main.py
+
+            - run: |
+                  git config --local user.email "jhjjhjkhj@gmail.com"
+                  git config --local user.name "TiboJhjj"
+                  git add .
+                  git commit -m "Add file"
+                  git push
